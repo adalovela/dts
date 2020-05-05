@@ -2,3 +2,26 @@ logs/
 build/
 LOG*
 .gradle/
+
+# Compiled output
+angular/dist
+angular/tmp
+angular/out-tsc
+angular/node_modules
+
+
+angular/connect.lock
+angular/coverage
+angular/libpeerconnection.log
+angular/npm-debug.log
+angular/yarn-error.log
+angular/testem.log
+angular/typings
+angular/reports
+angular/src/translations/template.*
+angular/src/environments/.env.*
+
+.DS_Store
+.vscode/
+.devcontainer/
+.devcontainer.json
