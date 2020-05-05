@@ -1,0 +1,8 @@
+# This defines our starting point
+FROM node:latest
+
+WORKDIR /workspace/app
+
+RUN npm install -g @angular/cli
+
+COPY . /workspace/app
