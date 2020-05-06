@@ -7,6 +7,8 @@ import { SharedModule } from '@shared';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 
+import { ApiService } from './api.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,5 +18,6 @@ import { HomeComponent } from './home.component';
     HomeRoutingModule,
   ],
   declarations: [HomeComponent],
+  providers: [ApiService],
 })
 export class HomeModule {}
