@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ErrorHandler } from '@angular/core';
 import { ApmErrorHandler } from '@elastic/apm-rum-angular';
+
+import { HttpErrorInterceptor } from './http-error.interceptor';
 
 @NgModule({
   imports: [
@@ -33,6 +35,11 @@ import { ApmErrorHandler } from '@elastic/apm-rum-angular';
     {
       provide: ErrorHandler,
       useClass: ApmErrorHandler,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

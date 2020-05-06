@@ -47,6 +47,33 @@ services:
     networks:
       - observability
 
+  apm-server:
+    image: docker.elastic.co/apm/apm-server:7.6.2
+    container_name: apm-server
+    command: >
+      apm-server -e
+        -E apm-server.rum.enabled=true
+        -E apm-server.rum.event_rate.limit=300
+        -E apm-server.rum.event_rate.lru_size=1000
+        -E apm-server.rum.allow_origins=['*']
+        -E apm-server.rum.library_pattern="node_modules|bower_components|~"
+        -E apm-server.rum.exclude_from_grouping="^/webpack"
+        -E apm-server.rum.source_mapping.enabled=true
+        -E apm-server.rum.source_mapping.cache.expiration=5m
+        -E apm-server.rum.source_mapping.index_pattern="apm-*"
+        -E setup.kibana.host=kibana:5601
+        -E apm-server.kibana.enabled=true
+        -E apm-server.kibana.host=kibana:5601
+        -E output.elasticsearch.hosts=["elastic:9200"]
+    #volumes:
+    #- ./docker/ELK/apm-server.yml:/usr/share/apm-server/apm-server.yml
+    ports:
+      - 8200:8200
+    depends_on:
+      - elastic
+    networks:
+      - observability
+
   elastic:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
     container_name: elastic
@@ -129,18 +156,6 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=admin
     networks:
       - observability
-
-  angular:
-    container_name: Angular
-    build:
-      context: angular
-      dockerfile: ../Angular-Dockerfile
-    volumes:
-      - "./angular:/workspace/app"
-    ports:
-      - "4200:4200"
-    command: >
-      bash -c "npm install"
 
   translator:
     image: dts/translator
@@ -279,3 +294,15 @@ services:
       - translator
     networks:
       - observability
+
+  angular:
+    container_name: angular
+    build:
+      context: angular
+      dockerfile: ../Angular-Dockerfile
+    volumes:
+      - "./angular:/workspace/app"
+    ports:
+      - "4200:4200"
+    command: >
+      bash -c "npm install && npm start"
