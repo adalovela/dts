@@ -2,9 +2,6 @@ import { NgModule, Inject } from '@angular/core';
 import { Routes, Router, RouterModule } from '@angular/router';
 import { ApmService } from '@elastic/apm-rum-angular';
 
-const appName = require('../../package.json').name;
-const appVersion = require('../../package.json').version;
-
 const routes: Routes = [
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '', pathMatch: 'full' },
@@ -24,9 +21,9 @@ const routes: Routes = [
 export class AppRoutingModule {
   constructor(@Inject(ApmService) service: ApmService) {
     const apm = service.init({
-      serviceName: appName,
+      serviceName: 'si-frontend',
       serverUrl: 'http://localhost:8200/',
-      serviceVersion: appVersion,
+      serviceVersion: '1.0.0',
     });
 
     apm.setUserContext({
