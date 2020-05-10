@@ -10,18 +10,15 @@ import { retry, catchError } from 'rxjs/operators';
 import { ApmService } from '@elastic/apm-rum-angular';
 import { Injectable, Inject } from '@angular/core';
 
-const appName = require('../../package.json').name;
-const appVersion = require('../../package.json').version;
-
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
   private apmService: any;
 
   constructor(@Inject(ApmService) service: ApmService) {
     this.apmService = service.init({
-      serviceName: appName,
+      serviceName: 'si-frontend',
       serverUrl: 'http://localhost:8200/',
-      serviceVersion: appVersion,
+      serviceVersion: '1.0.0',
     });
 
     this.apmService.setUserContext({
@@ -45,7 +42,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           // server-side error
           errorMessage = `Error: ${error.status} - ${error.message}`;
         }
-        this.apmService.captureError(errorMessage);
+        this.apmService.captureError(error, { message: errorMessage });
         return throwError(errorMessage);
       })
     );

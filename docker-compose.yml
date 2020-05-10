@@ -65,7 +65,9 @@ services:
         -E apm-server.kibana.enabled=true
         -E apm-server.kibana.host=kibana:5601
         -E output.elasticsearch.hosts=["elastic:9200"]
-    #volumes:
+    volumes:
+      - logs_data:/logs
+      - data01:/usr/share/apm-server/data
     #- ./docker/ELK/apm-server.yml:/usr/share/apm-server/apm-server.yml
     ports:
       - 8200:8200
@@ -92,6 +94,8 @@ services:
       - ./docker/ELK/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     ports:
       - 9200:9200
+    expose:
+      - 9200
     networks:
       - observability
 
@@ -301,6 +305,7 @@ services:
       context: angular
       dockerfile: ../Angular-Dockerfile
     volumes:
+      - logs_data:/logs
       - "./angular:/workspace/app"
     ports:
       - "4200:4200"
