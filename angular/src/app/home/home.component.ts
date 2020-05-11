@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -34,13 +35,14 @@ export class HomeComponent implements OnInit {
 
   generateError3() {
     // posts is correct endpoint
+    // true for 404, false for 505
     const api = 'postsxxxxxx';
-    this.ApiService.getJson(api).subscribe(
+    this.ApiService.getJson(true, api).subscribe(
       (res) => {
         console.debug(res);
       },
       (err) => {
-        console.debug(err);
+        throw throwError(err);
       }
     );
   }

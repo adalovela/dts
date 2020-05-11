@@ -15,16 +15,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   private apmService: any;
 
   constructor(@Inject(ApmService) service: ApmService) {
-    this.apmService = service.init({
-      serviceName: 'si-frontend',
-      serverUrl: 'http://localhost:8200/',
-      serviceVersion: '1.0.0',
-    });
-
-    this.apmService.setUserContext({
-      username: 'Zeus',
-      id: '001',
-    });
+    this.apmService = service.init();
   }
 
   intercept(
@@ -42,7 +33,37 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           // server-side error
           errorMessage = `Error: ${error.status} - ${error.message}`;
         }
-        this.apmService.captureError(error, { message: errorMessage });
+
+        this.apmService.addLabels({
+          name: error.name,
+          message: error.message,
+          ok: error.ok,
+          status: error.status,
+          status_text: error.statusText,
+          url: error.url,
+        });
+
+        this.apmService.addFilter((payload: any) => {
+          if (payload.errors) {
+            payload.errors.forEach((err: any) => {
+              err.exception.type = 'HTTP Error';
+              err.exception.code = error.status;
+            });
+          }
+          if (payload.transactions) {
+            payload.transactions.forEach((tr: any) => {
+              tr.spans.forEach((span: any) => {
+                if (span.context && span.context.http.status_code) {
+                  span.context.http.status_code = error.status;
+                }
+              });
+            });
+          }
+          console.debug(payload);
+          return payload;
+        });
+
+        this.apmService.captureError(new Error(errorMessage));
         return throwError(errorMessage);
       })
     );

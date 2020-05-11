@@ -24,11 +24,13 @@ export class AppRoutingModule {
       serviceName: 'si-frontend',
       serverUrl: 'http://localhost:8200/',
       serviceVersion: '1.0.0',
+      logLevel: 'debug',
     });
 
     apm.setUserContext({
       username: 'Zeus',
-      id: '001',
+      id: '123',
+      email: 'zeuslabrador@protonmail.com',
     });
   }
 }

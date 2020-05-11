@@ -5,11 +5,17 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
-  private url = 'https://jsonplaceholder.typicode.com/';
+  private url1 = 'https://jsonplaceholder.typicode.com/';
+  private url2 = '/not-exist';
   constructor(private http: HttpClient) {}
 
-  getJson(api: string): Observable<any[]> {
-    const url = `${this.url}${api}`;
+  getJson(errorType: boolean, api: string): Observable<any[]> {
+    let url = '';
+    if (errorType) {
+      url = `${this.url1}${api}`;
+    } else {
+      url = `${this.url2}${api}`;
+    }
     return this.http.get(url).pipe(map((res: any) => res.splice(0, 5)));
   }
 }
