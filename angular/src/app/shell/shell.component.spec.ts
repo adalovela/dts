@@ -5,7 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CoreModule } from '@core';
 
-import { I18nModule } from '@app/i18n';
+/* import { I18nModule } from '@app/i18n'; */
 import { ShellComponent } from './shell.component';
 import { HeaderComponent } from './header/header.component';
 
@@ -18,7 +18,7 @@ describe('ShellComponent', () => {
       imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
-        I18nModule,
+        /* I18nModule, */
         NgbModule,
         CoreModule,
       ],
