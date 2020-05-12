@@ -12,7 +12,11 @@ datasources:
   - name: Elastic
     type: elasticsearch
     access: proxy
+    database: "apm-7.6.2-error-000001"
     url: http://elastic:9200
     basicAuth: false
     isDefault: false
     editable: true
+    jsonData:
+      esVersion: 70
+      timeField: "@timestamp"

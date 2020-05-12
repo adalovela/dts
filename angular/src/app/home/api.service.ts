@@ -10,12 +10,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getJson(errorType: boolean, api: string): Observable<any[]> {
-    let url = '';
-    if (errorType) {
-      url = `${this.url1}${api}`;
-    } else {
-      url = `${this.url2}${api}`;
-    }
+    const url = errorType ? `${this.url1}${api}` : `${this.url2}${api}`;
     return this.http.get(url).pipe(map((res: any) => res.splice(0, 5)));
   }
 }

@@ -19,12 +19,11 @@ export class HomeComponent implements OnInit {
     this.isLoading = true;
   }
 
-  generateError1() {
+  generateTypeError() {
     this.test1.push(this.test2);
-    console.error('Error 1 generated.');
   }
 
-  generateError2() {
+  generateRecursionError() {
     const recursionFunc = (val: any) => {
       if (val > 0) {
         recursionFunc(val);
@@ -33,11 +32,13 @@ export class HomeComponent implements OnInit {
     recursionFunc(500);
   }
 
-  generateError3() {
-    // posts is correct endpoint
-    // true for 404, false for 505
-    const api = 'postsxxxxxx';
-    this.ApiService.getJson(true, api).subscribe(
+  /**
+   * @param val - true for 404, false for 504
+   * posts is correct endpoint
+   */
+  generateHTTPError(val: boolean) {
+    const api = 'postsxx';
+    this.ApiService.getJson(val, api).subscribe(
       (res) => {
         console.debug(res);
       },

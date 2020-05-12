@@ -5,8 +5,35 @@
     </h1>
     <app-loader [isLoading]="isLoading"></app-loader>
 
-    <button (click)="generateError1()">Generate Console Error 1</button>
-    <button (click)="generateError2()">Generate Recursion Error 2</button>
-    <button (click)="generateError3()">Generate HTTP Error 3</button>
+    <div class="buttons">
+      <button
+        type="button"
+        class="btn btn-primary btn1"
+        (click)="generateTypeError()"
+      >
+        Generate Console Error 1
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary btn2"
+        (click)="generateRecursionError()"
+      >
+        Generate Recursion Error 2
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary btn3"
+        (click)="generateHTTPError(true)"
+      >
+        Generate 404 HTTP Error 3
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary btn4"
+        (click)="generateHTTPError(false)"
+      >
+        Generate 504 HTTP Error 4
+      </button>
+    </div>
   </div>
 </div>
