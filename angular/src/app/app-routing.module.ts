@@ -32,5 +32,32 @@ export class AppRoutingModule {
       id: '123',
       email: 'zeuslabrador@protonmail.com',
     });
+
+    apm.addFilter((payload: any) => {
+      if (payload.errors) {
+        payload.errors.forEach((err: any) => {
+          if (err.context.custom.status) {
+            apm.addLabels({
+              name: err.context.custom.name,
+              message: err.context.custom.message,
+              ok: err.context.custom.ok,
+              status: err.context.custom.status,
+              status_text: err.context.custom.statusText,
+              url: err.context.custom.url,
+            });
+          }
+          if (!err.context.custom.status) {
+            apm.addLabels({
+              name: 'window error',
+              message: err.exception.message,
+              status: '200',
+              status_text: err.exception.type,
+              url: err.context.page.url,
+            });
+          }
+        });
+      }
+      return payload;
+    });
   }
 }
