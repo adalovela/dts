@@ -48,9 +48,9 @@ export class AppRoutingModule {
           }
           if (!err.context.custom.status) {
             apm.addLabels({
-              name: 'window error',
+              name: 'WindowError',
               message: err.exception.message,
-              status: '200',
+              status: '100',
               status_text: err.exception.type,
               url: err.context.page.url,
             });
