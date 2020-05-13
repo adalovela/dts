@@ -32,7 +32,6 @@
     "@ng-bootstrap/ng-bootstrap": "^6.0.2",
     "@ngx-translate/core": "^12.0.0",
     "bootstrap": "^4.1.1",
-    "express": "^4.17.1",
     "rxjs": "^6.5.4",
     "tslib": "^1.10.1",
     "zone.js": "^0.10.3"
