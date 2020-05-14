@@ -89,6 +89,8 @@ Whereas for non-functional metrics, related to aspects like memory consumption, 
 ### Distributing tracing
 Zipkin UI: http://localhost:9411/
 
+![Zipkin Flow](/images/ZipkinFlow.png)
+
 The ports for each of these services can be modified in the ``docker-compose.yml`` file
 
 Also, you can optionally start up Kafka console consumers as well in case you want to see the flow of messages coming in each Kafka topic.
@@ -99,12 +101,12 @@ This can be done in two ways depending on whether you have a local installation 
     
     ${KAFKA_HOME}/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic $TOPIC
 
-So, for example, to consume messages from the Spanish topic:
+For example, to consume messages from the Spanish topic:
 
     ${KAFKA_HOME}/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic spanish    
 
 2. From the dockerized Kafka
-
+    
     
     docker run -it --rm --network="observability-poc_observability" --link observability-poc_kafka_1 bitnami/kafka:2 /opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server kafka:29092 --topic spanish    
     
