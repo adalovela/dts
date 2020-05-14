@@ -14,6 +14,10 @@ The system is composed of 5 services devoted to wonderful task of translating co
 Install [Docker](https://www.docker.com/) v19.0+ in your machine and simply run 
 
     docker-compose up -d
+    
+Make sure you have enough resources, otherwise services like 'elastic' or 'kafka' might not be able to start
+    
+![Docker minimun resources](/images/dockerMinResources.png)
      
 ## How to recreate the docker images for each of the services   
 
