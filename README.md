@@ -80,11 +80,11 @@ Foer example, go to the dashboards section in Grafana:
 
 And open the **Translation Metrics** to see the metrics related to the functional aspects of the system:
 
-![DTS Metrics](/images/TranslationMetricsDashboards.png)
+![DTS Metrics](/images/TranslationMetricsDashboard.png)
 
 Whereas for non-functional metrics, related to aspects like memory consumption, CPU, disk, etc.. you can see examples in the **JVM Metrics** Dashboard:
 
-![JVM specifics metrics](/images/JVMMetricsDashboards.png)
+![JVM specifics metrics](/images/JVMMetricsDashboard.png)
 
 ### Distributing tracing
 Zipkin UI: http://localhost:9411/
