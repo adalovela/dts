@@ -121,7 +121,7 @@ The main points of the application for this purpose are as follows:
   - url
 - These indexable fields are added to the payload before the event is sent to APM, using the `addFilter` function.
 - A grafana Elastic integration and a very basic dashboard (a file in JSON format) are included for a quick demo.
-
+![UI Error logs](/images/UI-graph.png)
 ### To run:
 
 1. `cd` to the `angular` directory and run `npm install`
