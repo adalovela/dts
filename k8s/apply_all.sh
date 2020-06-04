@@ -4,10 +4,10 @@ kubectl apply -f istio/
 # Config Maps
 kubectl apply -f istio/config
 
-# Service accounts
+# Service Accounts
 kubectl apply -f istio/serviceaccounts
 
-# CRDs
+# Custom Resource Definitions
 kubectl apply -f istio/crds
 
 # Prometheus
@@ -37,6 +37,9 @@ kubectl apply -f istio/services
 # Deployments
 kubectl apply -f istio/deployments
 
-# Deployments
+# Lists
 kubectl apply -f istio/lists
+
+# Pod Disruption Budgets
+kubectl apply -f istio/poddisruption
 
