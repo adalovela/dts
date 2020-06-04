@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio-grafana-configuration-dashboards-istio-mesh-dashboard
+  namespace: istio-dts
+  labels:
+    app: grafana
+    chart: grafana
+    heritage: Tiller
+    release: istio
+    istio: grafana
+data:
+  istio-mesh-dashboard-file: 'istio-mesh-dashboard.json'

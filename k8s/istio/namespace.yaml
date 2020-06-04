@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: istio-dts
+  labels:
+    istio-injection: disabled

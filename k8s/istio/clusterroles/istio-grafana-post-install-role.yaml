@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: istio-grafana-post-install-istio-system
+  labels:
+    app: grafana
+    chart: grafana
+    heritage: Tiller
+    release: istio
+rules:
+  - apiGroups: ["authentication.istio.io"] # needed to create default authn policy
+    resources: ["*"]
+    verbs: ["*"]

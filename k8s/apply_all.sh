@@ -1,0 +1,39 @@
+#!/bin/bash
+kubectl apply -f istio/
+
+# Config Maps
+kubectl apply -f istio/config
+
+# Service accounts
+kubectl apply -f istio/serviceaccounts
+
+# CRDs
+kubectl apply -f istio/crds
+
+# Prometheus
+kubectl apply -f istio/prometheus/istio-prometheus.yaml
+
+# Grafana
+kubectl apply -f istio/grafana/istio-grafana-citadel-dashboard.yaml
+kubectl apply -f istio/grafana/istio-grafana-config-main.yaml
+kubectl apply -f istio/grafana/istio-grafana-custom-resources-config.yaml
+kubectl apply -f istio/grafana/istio-grafana-galley-dashboard.yaml
+kubectl apply -f istio/grafana/istio-grafana-mesh-dashboard.yaml
+kubectl apply -f istio/grafana/istio-grafana-mixer-dashboard.yaml
+kubectl apply -f istio/grafana/istio-grafana-perf-dashboard.yaml
+kubectl apply -f istio/grafana/istio-grafana-pilot-dashboard.yaml
+kubectl apply -f istio/grafana/istio-grafana-service-dashboard.yaml
+kubectl apply -f istio/grafana/istio-grafana-workload-dashboard.yaml
+
+# Cluster Roles
+kubectl apply -f istio/clusterroles
+
+# Roles
+kubectl apply -f istio/roles
+
+# Services
+kubectl apply -f istio/services
+
+# Deployments
+kubectl apply -f istio/deployments
+
