@@ -37,3 +37,6 @@ kubectl apply -f istio/services
 # Deployments
 kubectl apply -f istio/deployments
 
+# Deployments
+kubectl apply -f istio/lists
+
