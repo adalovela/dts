@@ -9,4 +9,4 @@ metadata:
     heritage: Tiller
     release: istio
 data:
-  prometheus_file: 'prometheus.yml'
+  prometheus_file: '../prometheus/prometheus.yml'

@@ -11,7 +11,7 @@ metadata:
     release: istio
 data:
   config.yaml: |
-    istio_namespace: istio-system
+    istio_namespace: istio-dts
     deployment:
       accessible_namespaces: ['**']
     auth:

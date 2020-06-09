@@ -2,7 +2,7 @@ apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
   name: istio-policy
-  namespace: istio-system
+  namespace: istio-dts
   labels:
     app: policy
     chart: mixer

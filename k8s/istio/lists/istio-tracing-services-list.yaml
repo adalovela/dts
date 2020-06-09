@@ -2,7 +2,7 @@ apiVersion: v1
 kind: List
 metadata:
   name: tracing-services
-  namespace: istio-system
+  namespace: istio-dts
   labels:
     app: jaeger
     chart: tracing
@@ -31,7 +31,7 @@ items:
     kind: Service
     metadata:
       name: tracing
-      namespace: istio-system
+      namespace: istio-dts
       annotations:
       labels:
         app: jaeger

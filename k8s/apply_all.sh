@@ -8,14 +8,10 @@ kubectl apply -f istio/config
 kubectl apply -f istio/serviceaccounts
 
 # Custom Resource Definitions
-kubectl apply -f istio/crds
-
-# Prometheus
-kubectl apply -f istio/prometheus/istio-prometheus.yaml
+kubectl apply -f istio/customresourcedefinitions
 
 # Grafana
 kubectl apply -f istio/grafana/istio-grafana-citadel-dashboard.yaml
-kubectl apply -f istio/grafana/istio-grafana-config-main.yaml
 kubectl apply -f istio/grafana/istio-grafana-custom-resources-config.yaml
 kubectl apply -f istio/grafana/istio-grafana-galley-dashboard.yaml
 kubectl apply -f istio/grafana/istio-grafana-mesh-dashboard.yaml

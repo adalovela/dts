@@ -13,7 +13,7 @@ items:
     kind: Service
     metadata:
       name: jaeger-query
-      namespace: istio-system
+      namespace: istio-dts
       annotations:
       labels:
         app: jaeger
@@ -33,7 +33,7 @@ items:
     kind: Service
     metadata:
       name: jaeger-collector
-      namespace: istio-system
+      namespace: istio-dts
       labels:
         app: jaeger
         jaeger-infra: collector-service
@@ -61,7 +61,7 @@ items:
     kind: Service
     metadata:
       name: jaeger-agent
-      namespace: istio-system
+      namespace: istio-dts
       labels:
         app: jaeger
         jaeger-infra: agent-service

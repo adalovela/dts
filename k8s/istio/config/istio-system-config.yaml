@@ -94,7 +94,7 @@ data:
       enabled: true
     # The namespace to treat as the administrative root namespace for istio
     # configuration.
-    rootNamespace: istio-system
+    rootNamespace: istio-dts
 
     # Configures DNS certificates provisioned through Chiron linked into Pilot.
     certificates:
