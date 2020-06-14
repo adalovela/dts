@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio-grafana-configuration-dashboards-citadel-dashboard
+  namespace: dts-poc
+  labels:
+    app: grafana
+    chart: grafana
+    heritage: Tiller
+    release: istio
+    istio: grafana
+data:
+  gallery_dashboard_file: "istio-istio-citadel-dashboard.json"

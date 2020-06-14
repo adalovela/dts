@@ -2,11 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spanish
-  namespace: translator-app
+  namespace: dts-poc
   labels:
-    app: translator-app
+    app: dts-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: spanish
@@ -43,10 +43,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: translator-app
+  namespace: dts-poc
   name: spanish
   labels:
-    app: translator-app
+    app: dts-app
 spec:
   type: ClusterIP
   selector:

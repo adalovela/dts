@@ -1,0 +1,19 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: istio-egressgateway
+  namespace: dts-poc
+  labels:
+    chart: gateways
+    heritage: Tiller
+    release: istio
+    app: istio-egressgateway
+    istio: egressgateway
+spec:
+
+  minAvailable: 1
+  selector:
+    matchLabels:
+      release: istio
+      app: istio-egressgateway
+      istio: egressgateway

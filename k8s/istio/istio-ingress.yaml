@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: istio-system
-  namespace: istio-dts
+  namespace: dts-poc
 spec:
   rules:
   - host: grafana.dts.local

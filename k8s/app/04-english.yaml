@@ -1,12 +1,36 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: dts-poc
+  name: english
+  labels:
+    app: dts-app
+spec:
+  type: ClusterIP
+  selector:
+    app: english
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8091
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dts-english
+  labels:
+    account: english
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: english
-  namespace: translator-app
+  namespace: dts-poc
   labels:
-    app: translator-app
+    app: dts-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: english
@@ -40,10 +64,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: translator-app
+  namespace: dts-poc
   name: english
   labels:
-    app: translator-app
+    app: dts-app
 spec:
   type: ClusterIP
   selector:

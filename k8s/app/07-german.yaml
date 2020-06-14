@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: german
-  namespace: translator-app
+  namespace: dts-poc
   labels:
-    app: translator-app
+    app: dts-app
 spec:
   replicas: 2
   selector:
@@ -44,9 +44,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: german
-  namespace: translator-app
+  namespace: dts-poc
   labels:
-    app: translator-app
+    app: dts-app
 spec:
   type: ClusterIP
   selector:
