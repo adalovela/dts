@@ -1,0 +1,37 @@
+apiVersion: "config.istio.io/v1alpha2"
+kind: rule
+metadata:
+  name: promhttp
+  namespace: dts-poc
+  labels:
+    app: mixer
+    chart: mixer
+    heritage: Tiller
+    release: istio
+spec:
+  match: (context.protocol == "http" || context.protocol == "grpc") && (match((request.useragent | "-"), "kube-probe*") == false) && (match((request.useragent | "-"), "Prometheus*") == false)
+  actions:
+    - handler: prometheus
+      instances:
+        - requestcount
+        - requestduration
+        - requestsize
+        - responsesize
+---
+apiVersion: "config.istio.io/v1alpha2"
+kind: rule
+metadata:
+  name: promtcp
+  namespace: istio-system
+  labels:
+    app: mixer
+    chart: mixer
+    heritage: Tiller
+    release: istio
+spec:
+  match: context.protocol == "tcp"
+  actions:
+    - handler: prometheus
+      instances:
+        - tcpbytesent
+        - tcpbytereceived
