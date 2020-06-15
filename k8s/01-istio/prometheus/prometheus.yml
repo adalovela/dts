@@ -43,7 +43,7 @@ scrape_configs:
         - role: endpoints
           namespaces:
             names:
-              - istio-system
+              - dts-poc
 
 
       relabel_configs:
@@ -56,7 +56,7 @@ scrape_configs:
         - role: endpoints
           namespaces:
             names:
-              - istio-system
+              - dts-poc
 
       relabel_configs:
         - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
@@ -68,7 +68,7 @@ scrape_configs:
         - role: endpoints
           namespaces:
             names:
-              - istio-system
+              - dts-poc
 
       relabel_configs:
         - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
@@ -80,7 +80,7 @@ scrape_configs:
         - role: endpoints
           namespaces:
             names:
-              - istio-system
+              - dts-poc
 
       relabel_configs:
         - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
@@ -92,7 +92,7 @@ scrape_configs:
         - role: endpoints
           namespaces:
             names:
-              - istio-system
+              - dts-poc
 
       relabel_configs:
         - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]

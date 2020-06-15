@@ -15,7 +15,7 @@ spec:
       metricsExpiryDuration: "10m"
     metrics:
       - name: requests_total
-        instance_name: requestcount.instance.istio-system
+        instance_name: requestcount.instance.dts-poc
         kind: COUNTER
         label_names:
           - reporter
@@ -39,7 +39,7 @@ spec:
           - permissive_response_policyid
           - connection_security_policy
       - name: request_duration_seconds
-        instance_name: requestduration.instance.istio-system
+        instance_name: requestduration.instance.dts-poc
         kind: DISTRIBUTION
         label_names:
           - reporter
@@ -66,7 +66,7 @@ spec:
           explicit_buckets:
             bounds: [0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10]
       - name: request_bytes
-        instance_name: requestsize.instance.istio-system
+        instance_name: requestsize.instance.dts-poc
         kind: DISTRIBUTION
         label_names:
           - reporter
@@ -95,7 +95,7 @@ spec:
             scale: 1
             growthFactor: 10
       - name: response_bytes
-        instance_name: responsesize.instance.istio-system
+        instance_name: responsesize.instance.dts-poc
         kind: DISTRIBUTION
         label_names:
           - reporter
@@ -124,7 +124,7 @@ spec:
             scale: 1
             growthFactor: 10
       - name: tcp_sent_bytes_total
-        instance_name: tcpbytesent.instance.istio-system
+        instance_name: tcpbytesent.instance.dts-poc
         kind: COUNTER
         label_names:
           - reporter
@@ -144,7 +144,7 @@ spec:
           - connection_security_policy
           - response_flags
       - name: tcp_received_bytes_total
-        instance_name: tcpbytereceived.instance.istio-system
+        instance_name: tcpbytereceived.instance.dts-poc
         kind: COUNTER
         label_names:
           - reporter
@@ -164,7 +164,7 @@ spec:
           - connection_security_policy
           - response_flags
       - name: tcp_connections_opened_total
-        instance_name: tcpconnectionsopened.instance.istio-system
+        instance_name: tcpconnectionsopened.instance.dts-poc
         kind: COUNTER
         label_names:
           - reporter
@@ -184,7 +184,7 @@ spec:
           - connection_security_policy
           - response_flags
       - name: tcp_connections_closed_total
-        instance_name: tcpconnectionsclosed.instance.istio-system
+        instance_name: tcpconnectionsclosed.instance.dts-poc
         kind: COUNTER
         label_names:
           - reporter

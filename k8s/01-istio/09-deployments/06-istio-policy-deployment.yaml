@@ -89,11 +89,11 @@ spec:
             - --address
             - unix:///sock/mixer.socket
             - --log_output_level=default:info
-            - --configStoreURL=mcp://istio-galley.istio-system.svc:9901
-            - --configDefaultNamespace=istio-system
+            - --configStoreURL=mcp://istio-galley.dts-poc.svc:9901
+            - --configDefaultNamespace=dts-poc
             - --useAdapterCRDs=false
             - --useTemplateCRDs=false
-            - --trace_zipkin_url=http://zipkin.istio-system:9411/api/v1/spans
+            - --trace_zipkin_url=http://zipkin.dts-poc:9411/api/v1/spans
           env:
             - name: POD_NAMESPACE
               valueFrom:

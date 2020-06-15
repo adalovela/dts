@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: istio-galley-istio-system
+  name: istio-galley-dts-poc
   labels:
     app: galley
     chart: galley

@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: istio-security-post-install-role-binding-istio-system
+  name: istio-security-post-install-role-binding-dts-poc
   labels:
     app: security
     chart: security
@@ -10,7 +10,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: istio-security-post-install-istio-system
+  name: istio-security-post-install-dts-poc
 subjects:
   - kind: ServiceAccount
     name: istio-security-post-install-account

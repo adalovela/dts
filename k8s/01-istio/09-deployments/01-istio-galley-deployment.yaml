@@ -46,7 +46,7 @@ spec:
           - --livenessProbePath=/healthliveness
           - --readinessProbePath=/healthready
           - --readinessProbeInterval=1s
-          - --deployment-namespace=istio-system
+          - --deployment-namespace=dts-poc
           - --insecure=true
           - --enable-reconcileWebhookConfiguration=true
           - --validation-webhook-config-file

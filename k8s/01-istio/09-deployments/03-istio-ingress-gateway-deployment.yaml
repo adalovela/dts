@@ -141,7 +141,7 @@ spec:
             - name: ISTIO_META_WORKLOAD_NAME
               value: istio-ingressgateway
             - name: ISTIO_META_OWNER
-              value: kubernetes://api/apps/v1/namespaces/istio-system/deployments/istio-ingressgateway
+              value: kubernetes://api/apps/v1/namespaces/dts-poc/deployments/istio-ingressgateway
             - name: ISTIO_META_ROUTER_MODE
               value: sni-dnat
 

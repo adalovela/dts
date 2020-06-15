@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: istio-system
+  name: dts-poc
   namespace: dts-poc
 spec:
   rules:

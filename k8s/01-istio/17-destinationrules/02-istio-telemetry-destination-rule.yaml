@@ -9,7 +9,7 @@ metadata:
     heritage: Tiller
     release: istio
 spec:
-  host: istio-telemetry.istio-system.svc.cluster.local
+  host: istio-telemetry.dts-poc.svc.cluster.local
   trafficPolicy:
     portLevelSettings:
       - port:
