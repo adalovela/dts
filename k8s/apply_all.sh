@@ -73,8 +73,8 @@ kubectl apply -f 01-istio/17-destinationrules
 helm install dts-cp-kafka ./02-kafka/charts/
 
 ############## Dummy Translator Service ##############
-kubectl apply -f ./03-app/02-configs.yaml
-kubectl apply -f ./03-app/03-translator.yaml
-kubectl apply -f ./03-app/04-english.yaml
-kubectl apply -f ./03-app/05-spanish.yaml
+kubectl apply -f ./03-dts/02-configs.yaml
+kubectl apply -f ./03-dts/03-translator.yaml
+kubectl apply -f ./03-dts/04-english.yaml
+kubectl apply -f ./03-dts/05-spanish.yaml
 
